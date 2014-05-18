@@ -1,4 +1,5 @@
+<<<<<<< HEAD
 2014-06-25-Reading
 ==================
 
-University of Reading Workshop, June 2014
+University of Reading Workshop, June 2014.
