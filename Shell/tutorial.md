@@ -2,10 +2,10 @@
 layout: lesson
 root: ../..
 github_username: DevasenaInupakutika
-bootcamp_slug: 2014-05-08-soton
+bootcamp_slug: 2014-06-25-Reading
 title: The Unix Shell Scripting
 ---
-**Based on material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
+**Based on material by Devasena Inupakutika, Milad Fatenejad, Sasha Wood, and Radhika Khetani**
 
 ## Introduction
 
@@ -14,7 +14,7 @@ title: The Unix Shell Scripting
 The *shell* is a program that presents a command line interface, which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.
 
 Use a browser to open the tutorial on github, located at: http://github.com/{{page.github_username}}/{{page.bootcamp_slug}}
-Click on the directory named `/lessons/nocs/nocs-shell`.
+Click on the directory named `/Shell`.
 
 A *terminal* is a program you run that gives you access to the shell. There are many different terminal programs that vary across operating systems.
 There are many reasons to learn about the shell. In my opinion, the most important reasons are that:
