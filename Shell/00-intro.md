@@ -14,7 +14,7 @@ title: Introducing the Shell
 Josie Taylor, a biologist along with Nathan Ahmed, a robotics Engineer who captured 3D stereoscopic images of the species,
 has just returned from a six-month survey of the
 species detected by Mars Curiosity Rover in Mars,
-where she has been sampling existing life.
+where she has been sampling life existing on Mars.
 She has 300 samples in all, and now needs to:
 
 1.  Run each sample through an assay machine
