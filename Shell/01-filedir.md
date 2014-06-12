@@ -3,7 +3,6 @@ layout: lesson
 root: ../..
 title: Files and Directories
 ---
-<div class="objectives" markdown="1">
 
 #### Objectives
 *   Explain the similarities and differences between a file and a directory.
@@ -13,7 +12,6 @@ title: Files and Directories
 *   Identify the actual command, flags, and filenames in a command-line call.
 *   Demonstrate the use of tab completion, and explain its advantages.
 
-</div>
 
 The part of the operating system responsible for managing files and directories
 is called the [file system](../../gloss.html#filesystem).
@@ -26,10 +24,7 @@ Several commands are frequently used to create, inspect, rename, and delete file
 To start exploring them,
 let's open a shell window:
 
-~~~
-$
-~~~
-{:class="in"}
+`$`
 
 The dollar sign is a [prompt](../../gloss.html#prompt),
 which shows us that the shell is waiting for input;
@@ -41,14 +36,9 @@ The command's output is the ID of the current user,
 i.e.,
 it shows us who the shell thinks we are:
 
-~~~
-$ whoami
-~~~
-{:class="in"}
-~~~
-vlad
-~~~
-{:class="out"}
+`$ whoami`
+
+`vlad`
 
 More specifically, when we type `whoami` the shell:
 
@@ -70,16 +60,11 @@ Here,
 the computer's response is `/users/vlad`,
 which is Vlad's [home directory](../../gloss.html#home-directory):
 
-~~~
-$ pwd
-~~~
-{:class="in"}
-~~~
-/users/vlad
-~~~
-{:class="out"}
+`$ pwd`
 
-> #### Alphabet Soup
+`/users/vlad`
+
+>#### Alphabet Soup
 > 
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
@@ -92,7 +77,7 @@ $ pwd
 > its jargon. The result is as inconsistent as the roolz uv Inglish
 > speling, but we're stuck with it now.
 
-To understand what a "home directory" is,
+To understand what a `home directory` is,
 let's have a look at how the file system as a whole is organized.
 At the top is the [root directory](../../gloss.html#root-directory)
 that holds everything else.
@@ -104,9 +89,8 @@ Inside that directory are several other directories:
 `data` (for miscellaneous data files),
 `users` (where users' personal directories are located),
 `tmp` (for temporary files that don't need to be stored long-term),
-and so on:
+and so on.
 
-<img src="img/filesystem.svg" alt="The Filesystem" />
 
 We know that our current working directory `/users/vlad` is stored inside `/users`
 because `/users` is the first part of its name.
@@ -121,7 +105,6 @@ Wolfman's in `/users/larry`,
 and ours in `/users/vlad`,
 which is why `vlad` is the last part of the directory's name.
 
-<img src="img/home-directories.svg" alt="Home Directories" />
 
 > Notice that there are two meanings for the `/` character.
 > When it appears at the front of a file or directory name,
@@ -131,34 +114,23 @@ which is why `vlad` is the last part of the directory's name.
 Let's see what's in Vlad's home directory by running `ls`,
 which stands for "listing":
 
-~~~
-$ ls
-~~~
-{:class="in"}
-~~~
-bin          data      mail       music
-notes.txt    papers    pizza.cfg  solar
-solar.pdf    swc
-~~~
-{:class="out"}
+`$ ls`
 
-<img src="img/vlad-homedir.svg" alt="Vlad's Home Directory" />
+`bin          data      mail       music
+notes.txt    papers    pizza.cfg  solar
+solar.pdf    swc`
+
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
 We can make its output more comprehensible by using the [flag](../../gloss.html#command-line-flag) `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-~~~
-$ ls -F
-~~~
-{:class="in"}
-~~~
-bin/         data/     mail/      music/
+`$ ls -F`
+
+`bin/         data/     mail/      music/
 notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/
-~~~
-{:class="out"}
+solar.pdf    swc/`
 
 Here,
 we can see that `/users/vlad` contains seven [sub-directories](../../gloss.html#sub-directory).
@@ -197,15 +169,10 @@ the command `ls` with the parameters `-F` and `data`.
 The second parameter&mdash;the one *without* a leading dash&mdash;tells `ls` that
 we want a listing of something other than our current working directory:
 
-~~~
-$ ls -F data
-~~~
-{:class="in"}
-~~~
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
-~~~
-{:class="out"}
+`$ ls -F data`
+
+`amino-acids.txt   elements/     morse.txt
+pdb/              planets.txt   sunspot.txt`
 
 The output shows us that there are four text files and two sub-sub-directories.
 Organizing things hierarchically in this way helps us keep track of our work:
@@ -226,12 +193,11 @@ because `/data` is an [absolute path](../../gloss.html#absolute-path):
 ~~~
 $ ls -F /data
 ~~~
-{:class="in"}
+
 ~~~
 access.log    backup/    hardware.cfg
 network.cfg
 ~~~
-{:class="out"}
 
 The leading `/` tells the computer to follow the path from the root of the filesystem,
 so it always refers to exactly one directory,
@@ -245,21 +211,20 @@ and `ls` without any parameters shows us that directory's contents:
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad
 ~~~
-{:class="out"}
+
 ~~~
 $ ls
 ~~~
-{:class="in"}
+
 ~~~
 bin/         data/     mail/      music/
 notes.txt    papers/   pizza.cfg  solar/
 solar.pdf    swc/
 ~~~
-{:class="out"}
 
 We can use `cd` followed by a directory name to change our working directory.
 `cd` stands for "change directory",
@@ -270,7 +235,6 @@ it changes the shell's idea of what directory we are in.
 ~~~
 $ cd data
 ~~~
-{:class="in"}
 
 `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now in `/users/vlad/data`.
@@ -281,20 +245,19 @@ because that's where we now are:
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad/data
 ~~~
-{:class="out"}
+
 ~~~
 $ ls
 ~~~
-{:class="in"}
+
 ~~~
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
 ~~~
-{:class="out"}
 
 We now know how to go down the directory tree:
 how do we go up?
@@ -303,22 +266,20 @@ We could use an absolute path:
 ~~~
 $ cd /users/vlad
 ~~~
-{:class="in"}
 
 but it's almost always simpler to use `cd ..` to go up one level:
 
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad/data
 ~~~
-{:class="out"}
+
 ~~~
 $ cd ..
 ~~~
-{:class="in"}
 
 `..` is a special directory name meaning
 "the directory containing this one",
@@ -330,11 +291,10 @@ if we run `pwd` after running `cd ..`, we're back in `/users/vlad`:
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad
 ~~~
-{:class="out"}
 
 The special directory `..` doesn't usually show up when we run `ls`.
 If we want to display it, we can give `ls` the `-a` flag:
@@ -342,13 +302,12 @@ If we want to display it, we can give `ls` the `-a` flag:
 ~~~
 $ ls -F -a
 ~~~
-{:class="in"}
+
 ~~~
 ./           ../       bin/       data/
 mail/        music/    notes.txt  papers/
 pizza.cfg    solar/    solar.pdf    swc/
 ~~~
-{:class="out"}
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
@@ -410,7 +369,6 @@ Josie can see what files she has using the command:
 ~~~
 $ ls species-mars-rover/2012-07-03/
 ~~~
-{:class="in"}
 
 This is a lot to type,
 but she can let the shell do most of the work.
@@ -419,7 +377,6 @@ If she types:
 ~~~
 $ ls no
 ~~~
-{:class="in"}
 
 and then presses tab,
 the shell automatically completes the directory name for her:
@@ -427,7 +384,6 @@ the shell automatically completes the directory name for her:
 ~~~
 $ ls species-mars-rover/
 ~~~
-{:class="in"}
 
 If she presses tab again,
 Bash will add `2012-07-03/` to the command,
@@ -439,7 +395,6 @@ and so on.
 This is called [tab completion](../../gloss.html#tab-completion),
 and we will see it in many other tools as we go on.
 
-<div class="keypoints" markdown="1">
 
 #### Key Points
 *   The file system is responsible for managing information on the disk.
@@ -457,13 +412,10 @@ and we will see it in many other tools as we go on.
     but is normally used to indicate the type of data in the file.
 *   Most commands take options (flags) which begin with a '-'.
 
-</div>
 
-<div class="challenges" markdown="1">
 
 #### Challenges
 
-<img src="img/filesystem-challenge.svg" alt="Filesystem for Challenge Questions" />
 
 1.  If `pwd` displays `/users/thing`, what will `ls ../backup` display?
     1.  `../backup: No such file or directory`
@@ -491,4 +443,3 @@ and we will see it in many other tools as we go on.
     4.  It produces an error message.
 
 4.  What does the command `ls` do when used with the -s and -h arguments?
-</div>
