@@ -71,7 +71,7 @@ that holds everything else.
 We refer to it using a slash character `/` on its own;
 this is the leading slash in `/users/vlad`.
 
-For example, inside that directory are several other directories:
+For example, inside that directory can be several other directories:
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
 `users` (where users' personal directories are located),
