@@ -423,32 +423,8 @@ so this matches all the valid data files she has.
     wc -l mydata.dat
     ~~~
 
-3.  The command `uniq` removes adjacent duplicated lines from its input.
-    For example, if a file `salmon.txt` contains:
 
-    ~~~
-    coho
-    coho
-    steelhead
-    coho
-    steelhead
-    steelhead
-    ~~~
-
-    then `uniq salmon.txt` produces:
-
-    ~~~
-    coho
-    steelhead
-    coho
-    steelhead
-    ~~~
-
-    Why do you think `uniq` only removes *adjacent* duplicated lines?
-    (Hint: think about very large data sets.) What other command could
-    you combine with it in a pipe to remove all duplicated lines?
-
-4.  A file called `animals.txt` contains the following data:
+3.  A file called `animals.txt` contains the following data:
 
     ~~~
     2012-11-05,deer
@@ -467,7 +443,7 @@ so this matches all the valid data files she has.
     cat animals.txt | head -5 | tail -3 | sort -r > final.txt
     ~~~
 
-5.  The command:
+4.  The command:
 
     ~~~
     $ cut -d , -f 2 animals.txt

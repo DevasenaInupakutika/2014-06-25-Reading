@@ -3,7 +3,6 @@ layout: lesson
 root: ../..
 title: Loops
 ---
-<div class="objectives" markdown="1">
 
 #### Objectives
 *   Write a loop that applies one or more commands separately to each file in a set of files.
@@ -13,7 +12,6 @@ title: Loops
 *   Demonstrate how to see what commands have recently been executed.
 *   Re-run recently executed commands without retyping them.
 
-</div>
 
 Wildcards and tab completion are two ways to reduce typing (and typing mistakes).
 Another is to tell the shell to do something over and over again.
