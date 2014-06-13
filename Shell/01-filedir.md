@@ -64,19 +64,6 @@ which is Vlad's [home directory](../../gloss.html#home-directory):
 
 `/users/vlad`
 
->#### Alphabet Soup
-> 
-> If the command to find out who we are is `whoami`, the command to find
-> out where we are ought to be called `whereami`, so why is it `pwd`
-> instead? The usual answer is that in the early 1970s, when Unix was
-> first being developed, every keystroke counted: the devices of the day
-> were slow, and backspacing on a teletype was so painful that cutting the
-> number of keystrokes in order to cut the number of typing mistakes was
-> actually a win for usability. The reality is that commands were added to
-> Unix one by one, without any master plan, by people who were immersed in
-> its jargon. The result is as inconsistent as the roolz uv Inglish
-> speling, but we're stuck with it now.
-
 To understand what a `home directory` is,
 let's have a look at how the file system as a whole is organized.
 At the top is the [root directory](../../gloss.html#root-directory)
@@ -84,7 +71,7 @@ that holds everything else.
 We refer to it using a slash character `/` on its own;
 this is the leading slash in `/users/vlad`.
 
-Inside that directory are several other directories:
+For example, inside that directory are several other directories:
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
 `users` (where users' personal directories are located),
@@ -100,8 +87,9 @@ because its name begins with `/`.
 
 Underneath `/users`,
 we find one directory for each user with an account on this machine.
-The Mummy's files are stored in `/users/imhotep`,
-Wolfman's in `/users/larry`,
+Josie's files are stored in `/users/josie`,
+Guest's in `/users/Guest`,
+User's in `users/user`
 and ours in `/users/vlad`,
 which is why `vlad` is the last part of the directory's name.
 
@@ -116,9 +104,7 @@ which stands for "listing":
 
 `$ ls`
 
-`bin          data      mail       music
-notes.txt    papers    pizza.cfg  solar
-solar.pdf    swc`
+`data   notes.txt  pizza.cfg solar.pdf`
 
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
@@ -128,12 +114,10 @@ which tells `ls` to add a trailing `/` to the names of directories:
 
 `$ ls -F`
 
-`bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/`
+`data/   notes.txt   pizza.cfg  solar.pdf`
 
 Here,
-we can see that `/users/vlad` contains seven [sub-directories](../../gloss.html#sub-directory).
+we can see that `/users/vlad` contains one [sub-directory](../../gloss.html#sub-directory).
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
@@ -141,27 +125,6 @@ And note that there is a space between `ls` and `-F`:
 without it,
 the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
-
-> #### What's In A Name?
-> 
-> You may have noticed that all of Vlad's files' names are "something dot
-> something". This is just a convention: we can call a file `mythesis` or
-> almost anything else we want. However, most people use two-part names
-> most of the time to help them (and their programs) tell different kinds
-> of files apart. The second part of such a name is called the
-> [filename extension](../../gloss.html#filename-extension), and indicates
-> what type of data the file holds: `.txt` signals a plain text file, `.pdf`
-> indicates a PDF document, `.cfg` is a configuration file full of parameters
-> for some program or other, and so on.
->
-> This is just a convention, albeit an important one. Files contain
-> bytes: it's up to us and our programs to interpret those bytes
-> according to the rules for PDF documents, images, and so on.
->
-> Naming a PNG image of a whale as `whale.mp3` doesn't somehow
-> magically turn it into a recording of whalesong, though it *might*
-> cause the operating system to try to open it with a music player
-> when someone double-clicks it.
 
 Now let's take a look at what's in Vlad's `data` directory by running `ls -F data`,
 i.e.,
@@ -190,9 +153,7 @@ rather than from the root of the file system.
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
 because `/data` is an [absolute path](../../gloss.html#absolute-path):
 
-~~~
-$ ls -F /data
-~~~
+`$ ls -F ../../data`
 
 ~~~
 access.log    backup/    hardware.cfg
@@ -221,9 +182,7 @@ $ ls
 ~~~
 
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/
+data/ notes.txt  pizza.cfg solar.pdf
 ~~~
 
 We can use `cd` followed by a directory name to change our working directory.
@@ -304,9 +263,7 @@ $ ls -F -a
 ~~~
 
 ~~~
-./           ../       bin/       data/
-mail/        music/    notes.txt  papers/
-pizza.cfg    solar/    solar.pdf    swc/
+./           ../       data/ notes.txt  pizza.cfg    solar.pdf   
 ~~~
 
 `-a` stands for "show all";
@@ -375,7 +332,7 @@ but she can let the shell do most of the work.
 If she types:
 
 ~~~
-$ ls no
+$ ls sp
 ~~~
 
 and then presses tab,
@@ -414,32 +371,3 @@ and we will see it in many other tools as we go on.
 
 
 
-#### Challenges
-
-
-1.  If `pwd` displays `/users/thing`, what will `ls ../backup` display?
-    1.  `../backup: No such file or directory`
-    2.  `2012-12-01 2013-01-08 2013-01-27`
-    3.  `2012-12-01/ 2013-01-08/ 2013-01-27/`
-    4.  `original pnas_final pnas_sub`
-
-2.  If `pwd` displays `/users/backup`,
-    and `-r` tells `ls` to display things in reverse order,
-    what command will display:
-
-    ~~~
-    pnas-sub/ pnas-final/ original/
-    ~~~
-
-    1.  `ls pwd`
-    2.  `ls -r -F`
-    3.  `ls -r -F /users/backup`
-    4.  Either \#2 or \#3 above, but not \#1.
-
-3.  What does the command `cd` without a directory name do?
-    1.  It has no effect.
-    2.  It changes the working directory to `/`.
-    3.  It changes the working directory to the user's home directory.
-    4.  It produces an error message.
-
-4.  What does the command `ls` do when used with the -s and -h arguments?
