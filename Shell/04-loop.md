@@ -23,14 +23,12 @@ We can't use:
 ~~~
 $ mv *.dat original-*.dat
 ~~~
-{:class="in"}
 
 because that would expand (in the two-file case) to:
 
 ~~~
 $ mv basilisk.dat unicorn.dat
 ~~~
-{:class="in"}
 
 This wouldn't back up our files:
 it would replace the content of `unicorn.dat` with whatever's in `basilisk.dat`.
@@ -45,7 +43,7 @@ $ for filename in basilisk.dat unicorn.dat
 >    head -3 $filename
 > done
 ~~~
-{:class="in"}
+
 ~~~
 COMMON NAME: basilisk
 CLASSIFICATION: basiliscus vulgaris
@@ -54,7 +52,6 @@ COMMON NAME: unicorn
 CLASSIFICATION: equus monoceros
 UPDATED: 1738-11-24
 ~~~
-{:class="out"}
 
 When the shell sees the keyword `for`,
 it knows it is supposed to repeat a command (or group of commands) once for each thing in a list.
@@ -88,7 +85,6 @@ do
     head -3 $x
 done
 ~~~
-{:class="in"}
 
 or:
 
@@ -98,9 +94,9 @@ do
     head -3 $temperature
 done
 ~~~
-{:class="in"}
 
 it would work exactly the same way.
+
 *Don't do this.*
 Programs are only useful if people can understand them,
 so meaningless names (like `x`) or misleading names (like `temperature`)
@@ -115,7 +111,6 @@ do
     head -100 $filename | tail -20
 done
 ~~~
-{:class="in"}
 
 The shell starts by expanding `*.dat` to create the list of files it will process.
 The [loop body](../../gloss.html#loop-body)
@@ -126,14 +121,12 @@ For example:
 ~~~
 $ echo hello there
 ~~~
-{:class="in"}
 
 prints:
 
 ~~~
 hello there
 ~~~
-{:class="out"}
 
 In this case,
 since the shell expands `$filename` to be the name of a file,
@@ -147,7 +140,6 @@ do
     head -100 $filename | tail -20
 done
 ~~~
-{:class="in"}
 
 because then the first time through the loop,
 when `$filename` expanded to `basilisk.dat`, the shell would try to run `basilisk.dat` as a program.
@@ -216,7 +208,6 @@ do
     mv $filename original-$filename
 done
 ~~~
-{:class="in"}
 
 This loop runs the `mv` command once for each filename.
 The first time,
@@ -226,14 +217,12 @@ the shell executes:
 ~~~
 mv basilisk.dat original-basilisk.dat
 ~~~
-{:class="in"}
 
 The second time, the command is:
 
 ~~~
 mv unicorn.dat original-unicorn.dat
 ~~~
-{:class="in"}
 
 > #### Measure Twice, Run Once
 > 
@@ -277,7 +266,7 @@ $ for datafile in *[AB].txt
 >     echo $datafile
 > done
 ~~~
-{:class="in"}
+
 ~~~
 JOSIE01729A.txt
 JOSIE01729B.txt
@@ -286,7 +275,6 @@ JOSIE01736A.txt
 JOSIE02043A.txt
 JOSIE02043B.txt
 ~~~
-{:class="out"}
 
 Her next step is to decide
 what to call the files that the `goostats` analysis program will create.
@@ -299,7 +287,7 @@ $ for datafile in *[AB].txt
 >     echo $datafile stats-$datafile
 > done
 ~~~
-{:class="in"}
+
 ~~~
 JOSIE01729A.txt stats-JOSIE01729A.txt
 JOSIE01729B.txt stats-JOSIE01729B.txt
@@ -308,7 +296,6 @@ JOSIE01736A.txt stats-JOSIE01736A.txt
 JOSIE02043A.txt stats-JOSIE02043A.txt
 JOSIE02043B.txt stats-JOSIE02043B.txt
 ~~~
-{:class="out"}
 
 She hasn't actually run `goostats` yet,
 but now she's sure she can select the right files and generate the right output filenames.
@@ -325,7 +312,6 @@ the shell redisplays the whole loop on one line
 ~~~
 $ for datafile in *[AB].txt; do echo $datafile stats-$datafile; done
 ~~~
-{:class="in"}
 
 Using the left arrow key,
 Josie backs up and changes the command `echo` to `goostats`:
@@ -333,7 +319,6 @@ Josie backs up and changes the command `echo` to `goostats`:
 ~~~
 $ for datafile in *[AB].txt; do bash goostats $datafile stats-$datafile; done
 ~~~
-{:class="in"}
 
 When she presses enter,
 the shell runs the modified command.
@@ -347,7 +332,6 @@ and edits it to read:
 ~~~
 $ for datafile in *[AB].txt; do echo $datafile; bash goostats $datafile stats-$datafile; done
 ~~~
-{:class="in"}
 
 > #### Beginning and End
 >
@@ -364,7 +348,6 @@ JOSIE01729B.txt
 JOSIE01736A.txt
 ...
 ~~~
-{:class="out"}
 
 1518 times 5 seconds,
 divided by 60,
@@ -396,7 +379,6 @@ so she decides to get some coffee and catch up on her reading.
 > then she can re-run `goostats` on `JOSIE01729B.txt` simply by typing
 > `!458`.
 
-<div class="keypoints" markdown="1">
 
 #### Key Points
 *   A `for` loop repeats commands once for every thing in a list.
@@ -407,9 +389,7 @@ so she decides to get some coffee and catch up on her reading.
 *   Use the up-arrow key to scroll up through previous commands to edit and repeat them.
 *   Use `history` to display recent commands, and `!number` to repeat a command by number.
 
-</div>
 
-<div class="challenges" markdown="1">
 
 #### Challenges
 
@@ -467,13 +447,4 @@ so she decides to get some coffee and catch up on her reading.
     done
     ~~~
 
-4.  Describe in words what the following loop does.
 
-    ~~~
-    for how in frog11 prcb redig
-    do
-        $how -limit 0.01 JOSIE01729B.txt
-    done
-    ~~~
-
-</div>
