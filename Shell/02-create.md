@@ -3,7 +3,6 @@ layout: lesson
 root: ../..
 title: Creating Things
 ---
-<div class="objectives" markdown="1">
 
 #### Objectives
 *   Create a directory hierarchy that matches a given diagram.
@@ -11,7 +10,6 @@ title: Creating Things
 *   Display the contents of a directory using the command line.
 *   Delete specified files and/or directories.
 
-</div>
 
 We now know how to explore files and directories,
 but how do we create them in the first place?
@@ -22,21 +20,18 @@ and use `ls -F` to see what it contains:
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad
 ~~~
-{:class="out"}
+
 ~~~
 $ ls -F
 ~~~
-{:class="in"}
+
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/
+data/  notes.txt  pizza.cfg solar.pdf 
 ~~~
-{:class="out"}
 
 Let's create a new directory called `thesis` using the command `mkdir thesis`
 (which has no output):
@@ -44,7 +39,6 @@ Let's create a new directory called `thesis` using the command `mkdir thesis`
 ~~~
 $ mkdir thesis
 ~~~
-{:class="in"}
 
 As you might (or might not) guess from its name,
 `mkdir` means "make directory".
@@ -55,20 +49,16 @@ the new directory is made below the current working directory:
 ~~~
 $ ls -F
 ~~~
-{:class="in"}
+
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/      thesis/
+data/    notes.txt    pizza.cfg  solar.pdf  thesis/
 ~~~
-{:class="out"}
 
 However, there's nothing in it yet:
 
 ~~~
 $ ls -F thesis
 ~~~
-{:class="in"}
 
 Let's change our working directory to `thesis` using `cd`,
 then run a text editor called Nano to create a file called `draft.txt`:
@@ -77,7 +67,6 @@ then run a text editor called Nano to create a file called `draft.txt`:
 $ cd thesis
 $ nano draft.txt
 ~~~
-{:class="in"}
 
 > #### Which Editor?
 > 
@@ -102,7 +91,6 @@ $ nano draft.txt
 Let's type in a few lines of text,
 then use Control-O to write our data to disk:
 
-<img src="img/nano-screenshot.png" alt="Nano in Action" />
 
 Once our file is saved,
 we can use Control-X to quit the editor and return to the shell.
@@ -113,18 +101,16 @@ but `ls` now shows that we have created a file called `draft.txt`:
 ~~~
 $ ls
 ~~~
-{:class="in"}
+
 ~~~
 draft.txt
 ~~~
-{:class="out"}
 
 Let's tidy up by running `rm draft.txt`:
 
 ~~~
 $ rm draft.txt
 ~~~
-{:class="in"}
 
 This command removes files ("rm" is short for "remove").
 If we run `ls` again,
@@ -134,7 +120,6 @@ which tells us that our file is gone:
 ~~~
 $ ls
 ~~~
-{:class="in"}
 
 > #### Deleting Is Forever
 > 
@@ -150,24 +135,23 @@ and then move up one directory to `/users/vlad` using `cd ..`:
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad/thesis
 ~~~
-{:class="out"}
+
 ~~~
 $ nano draft.txt
 $ ls
 ~~~
-{:class="in"}
+
 ~~~
 draft.txt
 ~~~
-{:class="out"}
+
 ~~~
 $ cd ..
 ~~~
-{:class="in"}
 
 If we try to remove the entire `thesis` directory using `rm thesis`,
 we get an error message:
@@ -175,11 +159,10 @@ we get an error message:
 ~~~
 $ rm thesis
 ~~~
-{:class="in"}
+
 ~~~
 rm: cannot remove `thesis': Is a directory
 ~~~
-{:class="err"}
 
 This happens because `rm` only works on files, not directories.
 The right command is `rmdir`,
@@ -190,11 +173,10 @@ because the directory we're trying to remove isn't empty:
 ~~~
 $ rmdir thesis
 ~~~
-{:class="in"}
+
 ~~~
 rmdir: failed to remove `thesis': Directory not empty
 ~~~
-{:class="err"}
 
 This little safety feature can save you a lot of grief,
 particularly if you are a bad typist.
@@ -203,14 +185,12 @@ To really get rid of `thesis` we must first delete the file `draft.txt`:
 ~~~
 $ rm thesis/draft.txt
 ~~~
-{:class="in"}
 
 The directory is now empty, so `rmdir` can delete it:
 
 ~~~
 $ rmdir thesis
 ~~~
-{:class="in"}
 
 > #### With Great Power Comes Great Responsibility
 > 
@@ -234,24 +214,23 @@ rather than going into the `thesis` directory and running `nano` on `draft.txt` 
 ~~~
 $ pwd
 ~~~
-{:class="in"}
+
 ~~~
 /users/vlad
 ~~~
-{:class="out"}
+
 ~~~
 $ mkdir thesis
 ~~~
-{:class="in"}
+
 ~~~
 $ nano thesis/draft.txt
 $ ls thesis
 ~~~
-{:class="in"}
+
 ~~~
 draft.txt
 ~~~
-{:class="out"}
 
 `draft.txt` isn't a particularly informative name,
 so let's change the file's name using `mv`,
@@ -260,7 +239,6 @@ which is short for "move":
 ~~~
 $ mv thesis/draft.txt thesis/quotes.txt
 ~~~
-{:class="in"}
 
 The first parameter tells `mv` what we're "moving",
 while the second is where it's to go.
@@ -273,11 +251,10 @@ Sure enough,
 ~~~
 $ ls thesis
 ~~~
-{:class="in"}
+
 ~~~
 quotes.txt
 ~~~
-{:class="out"}
 
 Just for the sake of inconsistency,
 `mv` also works on directories&mdash;there is no separate `mvdir` command.
@@ -294,7 +271,6 @@ the directory name we use is the special directory name `.` that we mentioned ea
 ~~~
 $ mv thesis/quotes.txt .
 ~~~
-{:class="in"}
 
 The effect is to move the file from the directory it was in to the current working directory.
 `ls` now shows us that `thesis` is empty:
@@ -302,7 +278,6 @@ The effect is to move the file from the directory it was in to the current worki
 ~~~
 $ ls thesis
 ~~~
-{:class="in"}
 
 Further,
 `ls` with a filename or directory name as a parameter only lists that file or directory.
@@ -311,11 +286,10 @@ We can use this to see that `quotes.txt` is still in our current directory:
 ~~~
 $ ls quotes.txt
 ~~~
-{:class="in"}
+
 ~~~
 quotes.txt
 ~~~
-{:class="out"}
 
 The `cp` command works very much like `mv`,
 except it copies a file instead of moving it.
@@ -327,11 +301,10 @@ with two paths as parameters&mdash;like most Unix commands,
 $ cp quotes.txt thesis/quotations.txt
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-{:class="in"}
+
 ~~~
 quotes.txt   thesis/quotations.txt
 ~~~
-{:class="out"}
 
 To prove that we made a copy,
 let's delete the `quotes.txt` file in the current directory
@@ -342,12 +315,11 @@ but it does find the copy in `thesis` that we didn't delete:
 ~~~
 $ ls quotes.txt thesis/quotations.txt
 ~~~
-{:class="in"}
+
 ~~~
 ls: cannot access quotes.txt: No such file or directory
 thesis/quotations.txt
 ~~~
-{:class="err"}
 
 > #### Another Useful Abbreviation
 > 
@@ -357,16 +329,13 @@ thesis/quotations.txt
 > `/home/vlad/data`. This only works if it is the first character in the
 > path: `here/there/~/elsewhere` is *not* `/home/vlad/elsewhere`.
 
-<div class="keypoints" markdown="1">
 
 #### Key Points
 *   Unix documentation uses '^A' to mean "control-A".
 *   The shell does not have a trash bin: once something is deleted, it's really gone.
 *   Nano is a very simple text editor&mdash;please use something else for real work.
 
-</div>
 
-<div class="challenges" markdown="1">
 
 #### Challenges
 
@@ -421,4 +390,3 @@ thesis/quotations.txt
     with most recently changed files or directories first.
     In what order does `ls -R -t` display things?
 
-</div>
