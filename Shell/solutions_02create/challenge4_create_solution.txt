@@ -1,0 +1,29 @@
+$ ls -R
+analyzed           backup             error_3cpfiles.txt intro.txt          methods.txt        raw                survey.txt         thesis
+
+./analyzed:
+fructose.dat sucrose.dat
+
+./backup:
+citations.txt  quotations.txt
+
+./raw:
+
+./thesis:
+citations.txt  quotations.txt
+$ ls -t
+error_3cpfiles.txt methods.txt        survey.txt         intro.txt          backup             thesis             analyzed           raw
+$ ls -R -t
+error_3cpfiles.txt methods.txt        survey.txt         intro.txt          backup             thesis             analyzed           raw
+
+./backup:
+citations.txt  quotations.txt
+
+./thesis:
+quotations.txt citations.txt
+
+./analyzed:
+sucrose.dat  fructose.dat
+
+./raw:
+
