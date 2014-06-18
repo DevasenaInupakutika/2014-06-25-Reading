@@ -7,11 +7,11 @@ University of Reading Workshop, June 2014
 
 ### Lesson 1: Unix Shell Scripting
 
-Introduction to command-line
+Students will be introduced to shell, command-line interface and it's importance in Scientific computing for task automation.
 
 ### Lesson 2: Python
 
-Introduction to Python programming
+Students will be taught basics programming constructs in Python on how to perform data manipulation/ analysis. 
 
 
 ### Lesson 3: Version Control with git/GitHub
