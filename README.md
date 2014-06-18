@@ -11,7 +11,7 @@ Students will be introduced to shell, command-line interface and it's importance
 
 ### Lesson 2: Python
 
-Students will be taught basics programming constructs in Python on how to perform data manipulation/ analysis. 
+Students will be taught basic programming constructs in Python on how to perform data manipulation/ analysis. 
 
 
 ### Lesson 3: Version Control with git/GitHub
