@@ -1,0 +1,71 @@
+1. sort -n makes program sort according to numerical value.
+
+   Note (Need to try): In case of multiple columns in your file:
+         sort -k1,1 -k4,4n
+		-n : Makes the program sort according to numerical value
+		-k opts: Sort data / fields using the given column number. For example, the option -k 2 made the program sort using the second
+			 column of data. The option -k 3,3n -k 4,4n sorts each column. First it will sort 3rd column and then 4th column.
+
+
+         or sort -t "," -k1,1 -k2n,2 file  for tab seperated columns.
+
+2. 
+
+$ wc -l < mydata.dat 
+      10
+$ wc -l mydata.dat 
+      10 mydata.dat
+
+First command 'wc' doesn't have any command-line parameters so it reads from standard input,  but we told shell to send the contents of 'mydata.dat' to 'wc's ' standard input.
+
+Second command 'wc' gets a command line parameter telling it what file to open.
+
+
+3. 
+
+$ nano animals.txt
+$ cat animals.txt
+2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-06,fox
+2012-11-07,rabbit
+2012-11-07,bear
+$ cat animals.txt|head -5
+2012-11-05,deer
+2012-11-05,rabbit
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+$ cat animals.txt|head -5|tail -3
+2012-11-05,raccoon
+2012-11-06,rabbit
+2012-11-06,deer
+$ cat animals.txt|head -5|tail -3|sort -r
+2012-11-06,rabbit
+2012-11-06,deer
+2012-11-05,raccoon
+$ cat animals.txt|head -5|tail -3|sort -r>final.txt
+$ ls
+animals.txt   final.txt     mydata.dat    solutions.txt
+
+4. 
+
+$ cut -d , -f 2 animals.txt
+deer
+rabbit
+raccoon
+rabbit
+deer
+fox
+rabbit
+bear
+$ cut -d , -f 2 animals.txt|sort -u 
+bear
+deer
+fox
+rabbit
+raccoon
+
