@@ -7,16 +7,16 @@ University of Reading Workshop, June 2014
 
 ### Lesson 1: Unix Shell Scripting
 
-Students will be introduced to shell, command-line interface and it's importance in Scientific computing for task automation.
+Students will be introduced to shell, command-line interface and its importance in Scientific computing for task automation.
 
 ### Lesson 2: Python
 
-Students will be taught basic programming constructs in Python on how to perform data manipulation/ analysis. 
+Students will be taught basic programming constructs in Python, with a focus on performing data manipulation/ analysis. 
 
 
 ### Lesson 3: Version Control with git/GitHub
 
-Students will work in pairs and in each pair one student will make a GitHub repo, then give the other student commit access on that repo. Students will take turns making modifications to learn various bits of git functionality.
+Students will learn basic commands and workflows for the version control system git, as well as the process of collaborating on documents via GitHub.  
 
 
 ### Lesson 4: Testing Your Software - Unit Testing
