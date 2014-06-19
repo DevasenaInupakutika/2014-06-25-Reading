@@ -1,0 +1,30 @@
+1. Try for *.dat files under Shell/creatures directory.
+   Final output is just the number of files of this format in creatures directory.
+
+   $ find . -name '*.dat' -print | wc -l | sort -n
+       2
+$ find . -name '*.dat' -print 
+./basilisk.dat
+./unicorn.dat
+$ find . -name '*.dat' -print | wc -l 
+       2
+
+
+2.
+
+$ find .  -name '*ose.dat' -exec  grep  -H -E -o -c  "temp"  {} \; | grep 0
+./fructose.dat:0
+./sucrose.dat:0
+$ grep -L "temp" *
+fructose.dat
+grep_results.txt
+sucrose.dat
+$ grep -L "temp" *ose.dat
+fructose.dat
+sucrose.dat
+$ rm grep_results.txt 
+$ ls
+fructose.dat maltose.dat  sucrose.dat
+
+
+
