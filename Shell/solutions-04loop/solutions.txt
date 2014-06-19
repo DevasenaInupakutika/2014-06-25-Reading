@@ -1,0 +1,51 @@
+1.
+
+$ cd solutions_06find/
+$ ls
+data          solutions.txt
+$ cd data
+$ for datafile in *.dat
+> do
+>  ls *.dat
+> done
+fructose.dat maltose.dat  sucrose.dat
+fructose.dat maltose.dat  sucrose.dat
+fructose.dat maltose.dat  sucrose.dat
+
+$ ls
+fructose.dat maltose.dat  sucrose.dat
+
+$ for datafile in *.dat; do  ls $datafile; done
+fructose.dat
+maltose.dat
+sucrose.dat
+
+
+2. Option 1 is the answer. Last file's contents will replace all other files contents to 'xylose.dat'.
+
+$ for sugar in *.dat
+> do
+>  echo $sugar
+>  cat $sugar>xylose.dat
+> done
+fructose.dat
+maltose.dat
+sucrose.dat
+$ nano xylose.dat 
+$ ls
+fructose.dat maltose.dat  sucrose.dat  xylose.dat
+
+3. 4 
+   6
+$ for left in 2 3
+> do
+>  for right in $left
+>  do
+>   expr $left + $right
+>  done
+> done
+4
+6
+
+
+
