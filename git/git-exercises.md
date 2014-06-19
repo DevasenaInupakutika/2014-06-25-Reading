@@ -41,13 +41,13 @@ Hint 3: The sequence of events is a) create a directory to store the files, b) m
 Pair up with someone next to you.  Go out of `project_files` into `git-project`.  Then clone your neighbor's repository to your computer using:
 
 ~~~
-git clone (https://github.com/ ... )
+git clone (https://github.com/ ... ) (name for their directory)
 ~~~
 
-Add a file named "paper.txt", with a title and both of you listed as authors.  Stage + commit the file.  Now try pushing to their repository (which should be named `origin`).  What happens?  
+Go into the cloned repository (use `cd`) and add a file named "paper.txt", with a title and both of you listed as authors.  Stage + commit the file.  Now try pushing to their repository (which should be named `origin`).  What happens?  
 
 ##Collaboration, part 2
 
-After your partner has added you to their repository on github, try pushing again.  Look at what your partner has pushed to your repository.  How do you get their additions into *your* copy of the files?  
+After your partner has added you to their repository on github, try pushing again.  Look at what your partner has pushed to your online repository.  How do you get their additions to your files into your local copy?  
 
 ##Collaboration, part 3... ?  
