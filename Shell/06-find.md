@@ -20,7 +20,7 @@ It is also the name of a very useful command-line program.
 
 `grep` finds and prints lines in files that match a pattern.
 For our examples,
-we will use a file that contains three haikus taken from a
+we will use a file that contains five haikus taken from "Message to Mars" haiku contest which was a part of outreach effort associated with the MAVEN orbiter, which was to be launched this fall to study the Red Planet's atmosphere in August 2013 and three haikus taken from a
 1998 competition in *Salon* magazine:
 
 ~~~
@@ -28,6 +28,26 @@ $ cat haiku.txt
 ~~~
 
 ~~~
+It’s funny, they named
+Mars after the God of War
+Have a look at Earth.
+
+Thirty-six million
+miles of whispering welcome.
+Mars, you called us home.
+
+Stars in the blue sky
+cheerfully observe the Earth
+while we long for them.
+
+Distant red planet
+the dreams of earth beings flow
+we will someday roam.
+
+Mars, your secret is
+unknown for humanity
+we want to know you.
+
 The Tao that is seen
 Is not the true Tao, until
 You bring fresh toner.
@@ -72,13 +92,14 @@ $ grep day haiku.txt
 ~~~
 
 ~~~
+we will someday roam.
 Yesterday it worked
 Today it is not working
 ~~~
 
 This time,
-the output is lines containing the words "Yesterday" and "Today",
-which both have the letters "day".
+the output is lines containing the words "someday", "Yesterday" and "Today",
+which all the three have the letters "day".
 If we give `grep` the `-w` flag,
 it restricts matches to word boundaries,
 so that only lines with the word "day" will be printed:
@@ -96,12 +117,13 @@ $ grep -n it haiku.txt
 ~~~
 
 ~~~
-5:With searching comes loss
-9:Yesterday it worked
-10:Today it is not working
+19:unknown for humanity
+26:With searching comes loss
+30:Yesterday it worked
+31:Today it is not working
 ~~~
 
-Here, we can see that lines 5, 9, and 10 contain the letters "it".
+Here, we can see that lines 19, 26, 30 and 31 contain the letters "it".
 
 We can combine flags as we do with other Unix commands.
 For example,
@@ -114,6 +136,20 @@ $ grep -i -v the haiku.txt
 ~~~
 
 ~~~
+Have a look at Earth.
+
+Thirty-six million
+miles of whispering welcome.
+Mars, you called us home.
+
+
+Distant red planet
+we will someday roam.
+
+Mars, your secret is
+unknown for humanity
+we want to know you.
+
 You bring fresh toner.
 
 With searching comes loss
