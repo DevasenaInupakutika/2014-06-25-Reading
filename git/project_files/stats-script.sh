@@ -1,4 +1,4 @@
 for datafile in *.txt
 do
-    bash goostats $datafile | echo
+    bash goostats $datafile >> output.txt
 done
