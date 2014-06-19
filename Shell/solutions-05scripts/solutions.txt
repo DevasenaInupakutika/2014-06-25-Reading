@@ -1,0 +1,28 @@
+1.
+
+Below 2 commands can be used as mentioned in 'species.sh' script file:
+
+cut -d ',' -f 2 $datafile| sort| uniq
+
+OR
+
+cut -d ',' -f 2 $datafile|sort -u
+
+Script is present in 'species.sh' and data is for now only present in 'animals.txt'.
+
+Command to execute the script file is as below:
+
+bash species.sh animals.txt
+
+--> $ bash species.sh animals.txt 
+bear
+deer
+fox
+rabbit
+raccoon
+
+2.
+
+$ bash longest.sh data/pdb pdb
+     248 data/pdb/lanoxin.pdb
+
