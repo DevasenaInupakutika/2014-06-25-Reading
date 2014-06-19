@@ -402,14 +402,14 @@ It's very common to use `find` and `grep` together.
 The first finds files that match a pattern;
 the second looks for lines inside those files that match another pattern.
 Here, for example, we can find PDB files that contain iron atoms
-by looking for the string "FE" in all the `.pdb` files below the current directory:
+by looking for the string "FE" in all the `.pdb` files under 'users/vlad/data' directory:
 
 ~~~
 $ grep FE $(find . -name '*.pdb' -print)
 ~~~
 
 ~~~
-./human/heme.pdb:ATOM  25  FE  1  -0.924  0.535  -0.518
+./pdb/heme.pdb:ATOM     25 FE           1      -0.924   0.535  -0.518
 ~~~
 
 > #### Binary Files
