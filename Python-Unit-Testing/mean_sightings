@@ -4,22 +4,22 @@ import matplotlib.mlab as ml
 import numpy as np
 import sys
 
-def get_sightings(filename, focusanimal):
+def get_sightings(filename, focusbiosig):
 
     # # Load table
     # tab = ml.csv2rec(filename)
 
-    # focusanimal = focusanimal.capitalize()
+    # focusbiosig = focusbiosig.capitalize()
 
-    # # Find number of records and total count of animals seen
-    # isfocus = (tab['animal'] == focusanimal)
+    # # Find number of records and total count of BioSignatures seen
+    # isfocus = (tab['BioSignature'] == focusbiosig)
     # totalrecs = np.sum(isfocus)
     # if totalrecs == 0:
     #     meancount = 0
     # else:
     #     meancount = np.mean(tab['count'][isfocus])
 
-    # # Return num of records and animals seen
+    # # Return num of records and biosignatures seen
     # return totalrecs, meancount
 
 
@@ -27,13 +27,13 @@ def get_sightings(filename, focusanimal):
     tab = ml.csv2rec(filename)
 
 
-    # Loop through all records, countings recs and animals
+    # Loop through all records, countings recs and biosignatures
     totalrecs = 0.
     totalcount = 0.
-    focusanimal = focusanimal.capitalize()
+    focusbiosig = focusbiosig.capitalize()
 
     for rec in tab:
-        if rec['animal'] == focusanimal:
+        if rec['BioSignature'] == focusbiosig:
             totalrecs += 1
             totalcount += rec['count']
 
@@ -41,11 +41,11 @@ def get_sightings(filename, focusanimal):
         meancount = 0
     else:
         meancount = totalcount/totalrecs
-    # Return num of records and animals seen
+    # Return num of records and biosignatures seen
     return totalrecs, meancount
 
 
 filename = sys.argv[1]
-animal = sys.argv[2]
+biosig = sys.argv[2]
 
-print get_sightings(filename, animal)
+print get_sightings(filename, biosig)

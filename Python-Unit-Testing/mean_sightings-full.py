@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Module/script to calculate mean number of sightings of a given animal in a 
+Module/script to calculate mean number of sightings of a given biosig in a 
 given sightings csv file.
 '''
 
@@ -10,16 +10,16 @@ import matplotlib.mlab as ml
 import numpy as np
 
 
-def get_sightings(filename, focusanimal):
+def get_sightings(filename, focusbiosig):
 
     # Load table
     tab = ml.csv2rec(filename)
 
-    # Standardize capitalization of focusanimal
-    focusanimal = focusanimal.capitalize()
+    # Standardize capitalization of focusbiosig
+    focusbiosig = focusbiosig.capitalize()
 
-    # Find number of records and total count of animals seen
-    isfocus = (tab['animal'] == focusanimal)
+    # Find number of records and total count of biosigs seen
+    isfocus = (tab['BioSignature'] == focusbiosig)
     totalrecs = np.sum(isfocus)
 
     if totalrecs == 0:
@@ -27,23 +27,23 @@ def get_sightings(filename, focusanimal):
     else:
         meancount = np.mean(tab['count'][isfocus])
 
-    # Return num of records and animals seen
+    # Return num of records and biosigs seen
     return totalrecs, meancount
 
 
-def get_sightings_loop(filename, focusanimal):
+def get_sightings_loop(filename, focusbiosig):
 
     # Load table
     tab = ml.csv2rec(filename)
 
-    # Standardize capitalization of focusanimal
-    focusanimal = focusanimal.capitalize()
+    # Standardize capitalization of focusbiosig
+    focusbiosig = focusbiosig.capitalize()
 
-    # Loop through all records, countings recs and animals
+    # Loop through all records, countings recs and biosignaturess
     totalrecs = 0.
     totalcount = 0.
     for rec in tab:
-        if rec['animal'] == focusanimal:
+        if rec['BioSignature'] == focusbiosig:
             totalrecs += 1
             totalcount += rec['count']
 
@@ -52,11 +52,11 @@ def get_sightings_loop(filename, focusanimal):
     else:
         meancount = totalcount/totalrecs
 
-    # Return num of records and animals seen
+    # Return num of records and biosignaturess seen
     return totalrecs, meancount
 
 if __name__ == '__main__':
     #print sys.argv
     filename = sys.argv[1]
-    focusanimal = sys.argv[2]
-    print get_sightings(filename, focusanimal)
+    focusbiosig = sys.argv[2]
+    print get_sightings(filename, focusbiosig)

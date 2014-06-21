@@ -51,37 +51,37 @@ to write and run our tests.
 A Unit Testing Example
 ----------------------
 
-We'll practice unit testing using a function that we've already written to 
-extract the mean number of animals seen per sighting from a csv file. First, 
+We'll practice unit testing using a function to 
+extract the mean number of Biosignatures seen on MARS per sighting from a csv file. First, 
 let's place this function in an external module. To do this, copy the code 
 below into a text file in this directory, and name it `mean_sightings.py`.
 
 	import matplotlib.mlab as ml
 	import numpy as np
 	
-	def get_sightings(filename, focusanimal):
+	def get_sightings(filename, focusbiosig):
 	
 		# Load table
 		tab = ml.csv2rec(filename)
 	
-		# Find number of records and total count of animals seen
-		isfocus = (tab['animal'] == focusanimal)
+		# Find number of records and total count of biosignatures seen
+		isfocus = (tab['BioSignature'] == focusbiosig)
 		totalrecs = np.sum(isfocus)
 		meancount = np.mean(tab['count'][isfocus])
 	
-		# Return num of records and animals seen
+		# Return num of records and biosignatures seen
 		return totalrecs, meancount
 	
 This function uses boolean arrays to calculate the total number of records and 
-mean number of animals per sighting for the focus animal.
+mean number of biosignatures per sighting for the focus biosignature.
 
 To confirm that everything's working correctly, open up a new IPython notebook 
 (in this same directory) and run the following in a cell:
 
 	from mean_sightings import get_sightings
-	print get_sightings('sightings_tab_sm.csv', 'Owl')
+	print get_sightings('sightings_tab_sm.csv', 'Water')
 
-This should give you the correct answer for the Owl (check to make sure by 
+This should give you the correct answer for the Water (check to make sure by 
 looking at the raw data file and counting by hand).
 
 Now that we have the function in a module, let's write some unit tests to make 
@@ -94,27 +94,27 @@ that we wish to test and set the filename that we want to use for the testing.
 
 	filename = 'sightings_tab_sm.csv'
 
-Note that we are using a small, "toy" data set for testing so that we can 
+Note that we are using a small, "dummy" data set for testing so that we can 
 calculate correct answers by hand.
 
 Now, let's write our first test function, which will simply test to make sure 
 that our function gives the correct answer when called using this small data 
-set and the Owl as arguments. Test functions (written for the `nose` testing 
+set and the `Water` as arguments. Test functions (written for the `nose` testing 
 package) can contain any type of Python code, like regular functions, but have 
 a few key features. First, they don't take any arguments. Second, they contain 
 at least one `assert` statement - the test will pass if the condition following 
 the `assert` statement is True, and the test will fail if it's False.
 
 An example will make this more clear. Here's a test that checks whether the 
-function returns the correct answers for the small data set and the Owl. Copy 
+function returns the correct answers for the small data set and the Water. Copy 
 and paste this at the end of the `test_mean_sightings.py` file.
 
-	def test_owl_is_correct():
-	    owlrec, owlmean = get_sightings(filename, 'Owl')
-		assert owlrec == 2, 'Number of records for owl is wrong'
-	    assert owlmean == 17, 'Mean sightings for owl is wrong'
+	def test_water_is_correct():
+	    watrec, watmean = get_sightings(filename, 'Water')
+		assert watrec == 2, 'Number of records for water is wrong'
+	    assert watmean == 17, 'Mean sightings for water is wrong'
 
-Note that we calculated the correct values of `owlrec` and `owlmean` by hand. 
+Note that we calculated the correct values of `watrec` and `watmean` by hand. 
 Make sure that you get these right!
 
 Now we're ready to run our suite of tests (so far, just this one test). Open a 
@@ -134,59 +134,59 @@ means the test failed, and an 'E' means there was an error in the test function
 itself.
 
 Just for fun, try changing your test so that it fails (for example, assert that 
-the number of Owl records should be 3). What output do you see now? Don't 
+the number of Water records should be 3). What output do you see now? Don't 
 forget to change the test back so that it passes after you're done.
 
->### Exercise 1 - Test the Muskox results
+>### Exercise 1 - Test the Clays results
 >
 >Add an additional test to your test file to make sure that your function also 
->gives the right answer when the animal is a Muskox. Run `nosetests` and make 
+>gives the right answer when the biosignature is a Clay. Run `nosetests` and make 
 >sure both tests pass.
 
 Great, now we have two tests that pass. However, both of these tests were 
 fairly straightforward, in that they tested the expected behavior of the 
 function under "normal" inputs. What about corner or boundary cases? For 
-example, what should our function do if the animal is not found anywhere in the 
+example, what should our function do if the biosignature is not found anywhere in the 
 data set?
 
 Let's say that we decide that our function should return 0 for the number of 
-records and 0 for the mean animals per record if the animal is not found in the 
+records and 0 for the mean biosignatures per record if the biosignature is not found in the 
 data set. Let's write a test to see if our function does this already:
 
-	def test_animal_not_present():
-	    animrec, animmean = get_sightings(filename, 'NotPresent')
-		assert animrec == 0, 'Animal missing should return zero records'
-	    assert animmean == 0, 'Animal missing should return zero mean'
+	def test_biosig_not_present():
+	    biosigrec, biosigmean = get_sightings(filename, 'NotPresent')
+		assert biosigrec == 0, 'BioSignature missing should return zero records'
+	    assert biosigmean == 0, 'BioSignature missing should return zero mean'
 
 If we run our test suite now, we see that this test fails. The output doesn't 
-give us much of a hint as to what went wrong though - we know that animmean was 
+give us much of a hint as to what went wrong though - we know that biosigmean was 
 not equal to zero, but what was it?
 
-To find out, add the line `print animrec, animmean` right above the first 
+To find out, add the line `print biosigrec, biosigmean` right above the first 
 assert statement, run the test suite again, and look at the output. Now we can 
-see that the animmean was 'nan', which stands for "not a number". This is 
-because when an animal is not found, our current function returns 0 for the 
+see that the biosigmean was 'nan', which stands for "not a number". This is 
+because when a biosignature is not found, our current function returns 0 for the 
 number of records and 0 for the total count. To calculate the mean, it tries to 
 divide 0/0, and gets 'nan'.
 
 >### Exercise 2 - Fixing our function for a boundary case
 >
->Modify the function `get_sightings` so that if the animal is not present, both 
+>Modify the function `get_sightings` so that if the biosignature is not present, both 
 >totalrecs and meancount are 0. HINT: Check if totalrecs is zero before 
 >calculating meancount - if totalrecs is zero, meancount must also be zero.
 >
 >Run your test suite again to make sure all three tests now pass.
 
-Here's another special case - all of the animal names in the data sets are 
+Here's another special case - all of the biosignature names in the data sets are 
 capitalized, with the first letter in uppercase and the rest of the letters in 
-lowercase. What if someone enters the name of the animal using the wrong case. 
-For example, they might call the function with the argument 'oWl' for the 
-animal name.
+lowercase. What if someone enters the name of the biosignature using the wrong case. 
+For example, they might call the function with the argument 'waTEr' for the 
+biosignature name.
 
 >### Exercise 3 - Fixing our function for bad input
 >
 >Write a test function that will pass only if your function returns the correct
->answer for owls if the input argument focusanimal is set to 'oWl'. Run this 
+>answer for water if the input argument focusbiosig is set to 'waTEr'. Run this 
 >test, and see that it currently fails.
 >
 >Then, modify the function so that this test passes. HINT: You can use the 
@@ -218,25 +218,25 @@ written this code in the previous lesson, so we can simply erase our existing
 `get_sightings` function and replace it with this code instead:
 
 
-	def get_sightings(filename, focusanimal):
+	def get_sightings(filename, focusbiosig):
 	
 	    # Load table
 	    tab = ml.csv2rec(filename)
 		
-		# Standardize capitalization of focusanimal
-		focusanimal = focusanimal.capitalize()
+		# Standardize capitalization of focusbiosig
+		focusbiosig = focusbiosig.capitalize()
 
-	    # Loop through all records, countings recs and animals
+	    # Loop through all records, countings recs and biosignatures
 	    totalrecs = 0
 	    totalcount = 0
 	    for rec in tab:
-			if rec['animal'] == focusanimal:
+			if rec['BioSignature'] == focusbiosig:
 	            totalrecs += 1
 	            totalcount += rec['count']
 	
 	    meancount = totalcount/totalrecs
 	
-	    # Return num of records and animals seen
+	    # Return num of records and biosignatures seen
 	    return totalrecs, meancount
 
 Thinking ahead, we made sure to add a line to fix the capitalization problem 
@@ -251,7 +251,7 @@ our test suite again.
 >output before to convince ourselves that it was correct...
 >
 >Try to uncover the causes of this regression. One failure should have a fairly 
->obvious cause (it relates to the issue of an animal not being present, which 
+>obvious cause (it relates to the issue of a biosignature not being present, which 
 >we check with the third test). The second failure has a more subtle cause - 
 >try to figure out the problem, and correct the function to give the right 
 >answer.
@@ -273,7 +273,7 @@ We have already written our first 4 test cases.
 Now we're going to write a bare minimum ``get_sightings`` that passes the first test case. The code will be 
 really stupid
 
-    def get_sightings(filename, focusanimal):
+    def get_sightings(filename, focusbiosig):
 		return (2, 17)
 	
 This is clearly wrong BUT it passes a couple of test cases. It has also forced you to think about the structure of your function. 
@@ -287,19 +287,19 @@ program.
 
 Example:
 
-    def get_sightings(filename, focusanimal):
+    def get_sightings(filename, focusbiosig):
     
     	# Load table
     	tab = ml.csv2rec(filename)
     
-    	# Standardize capitalization of focusanimal
-    	focusanimal = focusanimal.capitalize()
+    	# Standardize capitalization of focusbiosig
+    	focusbiosig = focusbiosig.capitalize()
     
-    	# Loop through all records, countings recs and animals
+    	# Loop through all records, countings recs and biosignatures
         totalrecs = 0.
         totalcount = 0.
     	for rec in tab:
-            if rec['animal'] == focusanimal:
+            if rec['BioSignature'] == focusbiosig:
             	totalrecs += 1
             	totalcount += rec['count']
     
@@ -308,7 +308,7 @@ Example:
     	else:
         	meancount = totalcount/totalrecs
     
-    	# Return num of records and animals seen
+    	# Return num of records and biosignatures seen
     	return totalrecs, meancount
 
 __BONUS__ If there is time, write some tests that will pass for a different csv file.
@@ -323,8 +323,8 @@ work, now that we have our function in a module.
 At the bottom of the `mean_sightings.py`, add the following lines:
 
 	filename = 'sightings_tab_sm.csv'
-	focusanimal = 'Owl'
-	print get_sightings(filename, focusanimal)
+	focusbiosig = 'Water'
+	print get_sightings(filename, focusbiosig)
 
 Now, head over to the command line and make sure that you're in the directory 
 containing the `mean_sightings.py` file. Type the statement below then hit 
@@ -333,14 +333,14 @@ return.
 	python mean_sightings.py
 
 You should see the output `(2, 17)` printed to the screen, which is the correct 
-number of records and the mean number of animals per record for the Owl in the 
+number of records and the mean number of biosignatures per record for Water in the 
 `sightings_tab_sm.csv` file.
 
 This is interesting, but it would be much more useful if we could give our 
 command line program arguments, in the same way that we would type `cat 
 myfile.txt`. For example, we may want to type `python mean_sightings.py 
 sightings_tab_sm.csv Owl` instead of having to make a change in the file itself 
-each time we want to use a different file and focal animal.
+each time we want to use a different file and focus biosignature.
 
 This is actually pretty easy to do using a Python module called `sys`. At the 
 top of the `mean_sightings.py` file, add the line
@@ -350,23 +350,23 @@ top of the `mean_sightings.py` file, add the line
 then at the bottom of the file, change your code to read
 
 	filename = sys.argv[1]
-	focusanimal = sys.argv[2]
-	print get_sightings(filename, focusanimal)
+	focusbiosigl = sys.argv[2]
+	print get_sightings(filename, focusbiosig)
 
 The variable `sys.argv` is a list of all of the arguments given on the command 
 line when this file is called (you can see this by putting `print sys.argv` a 
 the bottom of the script as well. The first argument, `sys.argv[0]`, is always 
 the name of the file that was run - in this case, it's `mean_sightings.py`. The 
 second and third arguments are stored in `sys.argv[1]` and `sys.argv[2]`, and 
-we've chosen to use these as the filename and focusanimal.
+we've chosen to use these as the filename and focusbiosig.
 
 Now you can simply type
 
 	python mean_sightings.py sightings_tab_sm.csv Owl
 
-and you'll get what you were expecting. Try this out with different animals and 
+and you'll get what you were expecting. Try this out with different biosignatures and 
 with the large table. Make sure it works for our special cases that we 
-addressed before, like the capitalization of the animal name being incorrect.
+addressed before, like the capitalization of the biosignature name being incorrect.
 
 Two more small changes will make our command line script extra professional.
 
@@ -379,8 +379,8 @@ the functions themselves) into a special if statement like so:
 
 	if __name__ == '__main__':
 		filename = sys.argv[1]
-		focusanimal = sys.argv[2]
-		print get_sightings(filename, focusanimal)
+		focusbiosig = sys.argv[2]
+		print get_sightings(filename, focusbiosig)
 
 When a Python script is run from the command line, a special hidden variable 
 called `__name__` is set to equal the string `__main__`. This special if 
@@ -396,16 +396,16 @@ python interpreter. To do this, make the very first line of the file
 
 	#!/usr/bin/env python
 
-Then, we need to give the file `mean_animals.py` permission to execute on its 
+Then, we need to give the file `mean_biosig.py` permission to execute on its 
 own. From the command line, in the directory containing the file 
-`mean_animals.py`, run the line
+`mean_biosig.py`, run the line
 
 	chmod 755 mean_sightings.py
 
 Now we can run our file as a standalone script simply by executing the 
 statement
 
-	./mean_sightings.py sightings_tab_sm.csv Owl
+	./mean_sightings.py sightings_tab_sm.csv Water
 
 That annoying little `./` at the front is because the shell, by default, 
 doesn't look inside your current directory for executable programs - it only 
