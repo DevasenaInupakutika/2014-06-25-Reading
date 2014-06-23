@@ -21,6 +21,6 @@ Students will learn basic commands and workflows for the version control system 
 
 ### Lesson 4: Testing Your Software - Unit Testing
 
-Continuing to work in pairs, students will use test driven development to construct a small scientific program in the IPython Notebook and then take their work to .py files to see how nose works from the command line.
+Continuing to work in pairs, students will use test driven development to construct a small scientific program in Python and then take their work to .py files to see how nose works from the command line.
 
 
