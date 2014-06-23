@@ -65,7 +65,7 @@ below into a text file in this directory, and name it `mean_sightings.py`.
 		tab = ml.csv2rec(filename)
 	
 		# Find number of records and total count of biosignatures seen
-		isfocus = (tab['BioSignature'] == focusbiosig)
+		isfocus = (tab['Biosignature'] == focusbiosig)
 		totalrecs = np.sum(isfocus)
 		meancount = np.mean(tab['count'][isfocus])
 	
@@ -111,7 +111,7 @@ and paste this at the end of the `test_mean_sightings.py` file.
 
 	def test_water_is_correct():
 	    watrec, watmean = get_sightings(filename, 'Water')
-		assert watrec == 2, 'Number of records for water is wrong'
+            assert watrec == 2, 'Number of records for water is wrong'
 	    assert watmean == 17, 'Mean sightings for water is wrong'
 
 Note that we calculated the correct values of `watrec` and `watmean` by hand. 
@@ -155,7 +155,7 @@ data set. Let's write a test to see if our function does this already:
 
 	def test_biosig_not_present():
 	    biosigrec, biosigmean = get_sightings(filename, 'NotPresent')
-		assert biosigrec == 0, 'BioSignature missing should return zero records'
+	    assert biosigrec == 0, 'BioSignature missing should return zero records'
 	    assert biosigmean == 0, 'BioSignature missing should return zero mean'
 
 If we run our test suite now, we see that this test fails. The output doesn't 
@@ -230,7 +230,7 @@ written this code in the previous lesson, so we can simply erase our existing
 	    totalrecs = 0
 	    totalcount = 0
 	    for rec in tab:
-			if rec['BioSignature'] == focusbiosig:
+			if rec['Biosignature'] == focusbiosig:
 	            totalrecs += 1
 	            totalcount += rec['count']
 	
@@ -299,7 +299,7 @@ Example:
         totalrecs = 0.
         totalcount = 0.
     	for rec in tab:
-            if rec['BioSignature'] == focusbiosig:
+            if rec['Biosignature'] == focusbiosig:
             	totalrecs += 1
             	totalcount += rec['count']
     
@@ -350,7 +350,7 @@ top of the `mean_sightings.py` file, add the line
 then at the bottom of the file, change your code to read
 
 	filename = sys.argv[1]
-	focusbiosigl = sys.argv[2]
+	focusbiosig  = sys.argv[2]
 	print get_sightings(filename, focusbiosig)
 
 The variable `sys.argv` is a list of all of the arguments given on the command 
@@ -362,7 +362,7 @@ we've chosen to use these as the filename and focusbiosig.
 
 Now you can simply type
 
-	python mean_sightings.py sightings_tab_sm.csv Owl
+	python mean_sightings.py sightings_tab_sm.csv Water
 
 and you'll get what you were expecting. Try this out with different biosignatures and 
 with the large table. Make sure it works for our special cases that we 
@@ -400,7 +400,7 @@ Then, we need to give the file `mean_biosig.py` permission to execute on its
 own. From the command line, in the directory containing the file 
 `mean_biosig.py`, run the line
 
-	chmod 755 mean_sightings.py
+	chmod +rwx mean_sightings.py
 
 Now we can run our file as a standalone script simply by executing the 
 statement
