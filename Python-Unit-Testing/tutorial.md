@@ -339,7 +339,7 @@ number of records and the mean number of biosignatures per record for Water in t
 This is interesting, but it would be much more useful if we could give our 
 command line program arguments, in the same way that we would type `cat 
 myfile.txt`. For example, we may want to type `python mean_sightings.py 
-sightings_tab_sm.csv Owl` instead of having to make a change in the file itself 
+sightings_tab_sm.csv Water` instead of having to make a change in the file itself 
 each time we want to use a different file and focus biosignature.
 
 This is actually pretty easy to do using a Python module called `sys`. At the 
@@ -398,9 +398,9 @@ python interpreter. To do this, make the very first line of the file
 
 Then, we need to give the file `mean_biosig.py` permission to execute on its 
 own. From the command line, in the directory containing the file 
-`mean_biosig.py`, run the line
+`mean_sightings.py`, run the line
 
-	chmod +rwx mean_sightings.py
+	chmod +x mean_sightings.py
 
 Now we can run our file as a standalone script simply by executing the 
 statement
