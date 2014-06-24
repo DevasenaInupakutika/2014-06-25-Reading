@@ -230,9 +230,9 @@ written this code in the previous lesson, so we can simply erase our existing
 	    totalrecs = 0
 	    totalcount = 0
 	    for rec in tab:
-			if rec['Biosignature'] == focusbiosig:
-	            totalrecs += 1
-	            totalcount += rec['count']
+			if rec['biosignature'] == focusbiosig:
+	                   totalrecs += 1
+	                   totalcount += rec['count']
 	
 	    meancount = totalcount/totalrecs
 	
