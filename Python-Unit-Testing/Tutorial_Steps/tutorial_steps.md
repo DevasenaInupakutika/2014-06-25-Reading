@@ -2,7 +2,7 @@
 
 ## Step 1:
 
-Create a function to extract mean number of BioSignatures (for example `Water`) seen on MARS per sighting from a `.csv` file and name it `mean_sightings.py`.
+Create a function to extract mean number of BioSignatures (for example `Water`) seen on MARS per sighting from  `sightings_tab_sm.csv` file and name it `mean_sightings.py`.
 
 ## Step 2:
 
