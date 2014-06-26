@@ -1,0 +1,295 @@
+    1  cd /media/swc/VBOXADDITIONS_4.2.18_88780
+    2  ls
+    3  sudo apt-get install dkms
+    4  apt-get update
+    5  sudo apt-get update
+    6  sudo apt-get install dkms
+    7  cd /cdrom/
+    8  ls
+    9  cd
+   10  cd /media/swc/VBOXADDITIONS_4.2.18_88780
+   11  ls
+   12  sudo sh ./VBoxLinuxAdditions.run
+   13  sudo apt-get install git
+   14  apt-cache search puppet
+   15  sudo apt-get install puppet
+   16  apt-cache search r-base
+   17  apt-cache search plyr
+   18  apt-cache search reshape2
+   19  apt-cache search ggplot2
+   20  apt-cache search devtools
+   21  apt-cache search knitr
+   22  apt-cache search rstudio
+   23  apt-cache search RStudio
+   24  apt-cache search rcurl
+   25  apt-cache search libcurl4
+   26  apt-cache search XML
+   27  apt-cache search r-cran-curl
+   28  apt-cache search r-cran-rcurl
+   29  git clone https://gist.github.com/5512074.git
+   30  cd 5512074/
+   31  ls
+   32  sudo puppet apply swc-vm.pp 
+   33  ls ~/Desktop/
+   34  type python
+   35  type ipython
+   36  cd
+   37  ipython
+   38  type gexit
+   39  type gedit
+   40  ipython notebook
+   41  cd Desktop/
+   42  lxshortcut -o LXTerminal.desktop
+   43  ls
+   44  git clone https://github.com/DevasenaInupakutika/2014-05-08-soton.git
+   45  nano test
+   46  ls
+   47  ipython notebook
+   48  exit
+   49  python
+   50  cd 2014-05-08-soton/
+   51  python
+   52  cd lessons/nocs/pandas/
+   53  python
+   54  exit
+   55  sudo apt-get install python-xlsxrd
+   56  python
+   57  ipython notebook
+   58  pwd
+   59  cd 2014-05-08-soton/
+   60  cd lessons/nocs/nocs-shell/
+   61  ls
+   62  cd ../pandas/
+   63  ls
+   64  cd data
+   65  ipython notebook
+   66  clean
+   67  export PS1="$"
+   68  clear
+   69  ls
+   70  clear
+   71  pwd
+   72  cd
+   73  export PS1="$"
+   74  cd 2014-05-08-soton/python_numpy_lessons/
+   75  ls
+   76  nano write_script.py
+   77  pwd
+   78  nano write_script.py
+   79  python write_script.py 
+   80  nano write_script.py
+   81  python write_script.py 
+   82  ls
+   83  nano data3.txt 
+   84  nano read_excel.py
+   85  ls
+   86  python write_script.py 
+   87  python write_excel.py
+   88  nano write_excel.py
+   89  python write_excel.py 
+   90  nano write_excel.py
+   91  python write_excel.py 
+   92  ls
+   93  nano write_excel.py
+   94  nano read_excel.py
+   95  python read_excel.py 
+   96  nano read_excel.py
+   97  python read_excel.py 
+   98  nano read_excel.py
+   99  python read_excel.py 
+  100  nano read_excel.py
+  101  python read_excel.py 
+  102  nano read_excel.py
+  103  pwd
+  104  cd ../lessons/nocs/pandas/
+  105  ipython notebook
+  106  exit
+  107  cd data/
+  108  ls
+  109  export PS1="$"
+  110  ls
+  111  exit
+  112  git clone https://github.com/DevasenaInupakutika/2014-06-25-Reading.git
+  113  ls
+  114  pwd
+  115  whoami
+  116  cd exit
+  117  exit
+  118  source .bash_profile
+  119  nano ~/.bash_profile
+  120  source .bash_profile
+  121  git clone https://github.com/DevasenaInupakutika/2014-06-25-Reading 
+  122  ls
+  123  rm 2014-06-25-Reading/
+  124  rm -r 2014-06-25-Reading/
+  125  git clone https://github.com/DevasenaInupakutika/2014-06-25-Reading 
+  126  ls
+  127  pwd
+  128  whoami
+  129  cd 2014-06-25-Reading/
+  130  pwd
+  131  ls
+  132  cd Shell
+  133  ls
+  134  cd filesystem/users/vlad/
+  135  ls 
+  136  ls -F
+  137  ls -a
+  138  cd ..
+  139  pwd
+  140  cd vlad
+  141  ls -al
+  142  cd data
+  143  ls
+  144  cd ..
+  145  pwd
+  146  cd ../josie/
+  147  pwd
+  148  ls species-mars-rover/
+  149  ls species-mars-rover/2012-07-03/
+  150  cd ../vlad/
+  151  ls -F
+  152  mkdir thesis
+  153  ls -F
+  154  cd thesis/
+  155  ls
+  156  nano draft.txt
+  157  cd ..
+  158  rm thesis/
+  159  rm thesis/draft.txt 
+  160  ls thesis/
+  161  rm thesis/
+  162  rmdir thesis/
+  163  ls
+  164  mkdir thesis
+  165  cd thesis/
+  166  nano draft.txt
+  167  cd ..
+  168  rm -r thesis/
+  169  ls
+  170  mkdir thesis
+  171  cd thesis/
+  172  nano draft.txt
+  173  cp draft.txt  quotes.txt
+  174  ls
+  175  mv draft.txt paper.txt
+  176  ls
+  177  mv quotes.txt ../quotes.txt
+  178  ls ../
+  179  ls
+  180  pwd
+  181  ls ../../
+  182  cd vla
+  183  cd ../../vlad/
+  184  ls
+  185  cd data
+  186  nano proteins.dat
+  187  ls
+  188  rm proteins.dat 
+  189  ls
+  190  mkdir data1
+  191  cd data1
+  192  nano proteins.dat
+  193  ls
+  194  mkdir recombine
+  195  mv proteins.dat recombine/
+  196  cp recombine/proteins.dat ../proteins-saved.dat
+  197  ls
+  198  ls ..
+  199  ls
+  200  pwd
+  201  cd ../../../../
+  202  pwd
+  203  cd ..
+  204  ls
+  205  cd molecules/
+  206  ls
+  207  wc *.pdb
+  208  wc -l *.pdb
+  209  wc -l *.pdb>lines
+  210  ls
+  211  nano lines 
+  212  cat lines 
+  213  ls lines 
+  214  sort lines 
+  215  sort -n lines 
+  216  sort -n lines > sorted-lines
+  217  ls
+  218  nano sorted-lines 
+  219  head -1 sorted-lines 
+  220  head -3 sorted-lines 
+  221  sort lines |tail -1
+  222  sort lines
+  223  tail -1 lines 
+  224  sort lines |head -1
+  225  nano lines 
+  226  sort -n  lines |head -1
+  227  sort -r -n lines|head -1 
+  228  wc -l *.pdb|sort -n|head -1
+  229  pwd
+  230  cd ../filesystem/users/josie/
+  231  ls
+  232  cd species-mars-rover/2012-07-03/
+  233  ls 
+  234  wc -l *.txt
+  235  wc -l *[AB].txt
+  236  wc -l *txt|sort|head -5
+  237  ls *Z.txt
+  238  nano JOSIE01971Z.txt 
+  239  ls
+  240  nano goostats 
+  241  pwd
+  242  cd ../../../../
+  243  pwd
+  244  cd ../finding/
+  245  ls
+  246  cat haiku.txt 
+  247  grep not haiku.txt 
+  248  grep day haiku.txt 
+  249  grep "day" haiku.txt 
+  250  grep 'day' haiku.txt 
+  251  grep -w day haiku.txt 
+  252  pwd
+  253  grep -n it haiku.txt 
+  254  grep the haiku.txt 
+  255  grep -i -v the haiku.txt 
+  256  man grep
+  257  man sort
+  258  man grep
+  259  grep -E '^.o' haiku.txt 
+  260  pwd
+  261  cd ../filesystem/users/vlad/
+  262  ls
+  263  find -type f -print
+  264  find -type d -print
+  265  find -maxdepth 1 -type f -print
+  266  ls
+  267  find -maxdepth 2 -type f -print
+  268  find . -name '*.txt' -print
+  269  wc -l $(find . -name '*.txt' -print)
+  270  pwd 
+  271  cd ../../../creatures/
+  272  pwd
+  273  ls
+  274  for filename in *.dat; do  mv $filename original-$filename; done
+  275  ls
+  276  mv original-basilisk.dat basilisk.dat
+  277  mv original-unicorn.dat unicorn.dat
+  278  ls
+  279  for filename in *.dat; do  echo $filename; mv $filename original-$filename; done
+  280  ls
+  281  pwd
+  282  cd ../filesystem/users/josie/species-mars-rover/2012-07-03/
+  283  pwd
+  284  ls
+  285  for filename in *[AB].txt; do   echo $filename;  bash goostats $filename stat-$filename; done
+  286  ls
+  287  nano loop_goostat.sh
+  288  ls
+  289  chmod +rwx loop_goostat.sh 
+  290  ls
+  291  ./loop_goostat.sh 
+  292  ls
+  293  nano loop_goostat.sh 
+  294  history
+  295  history > Jun25-history
