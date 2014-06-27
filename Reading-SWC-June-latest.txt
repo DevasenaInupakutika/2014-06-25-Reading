@@ -1,0 +1,70 @@
+University of Reading - Software Carpentry Bootcamp - June 25-26, 2014
+
+Hello Everyone,
+
+Welcome to University of Reading Software carpentry bootcamp etherpad. T
+
+This  is an open forum. So, please feel free to post any queries/  information/ suggestions on any topic here. Anyone from either  instructors, helpers or participants can address them and pitch in to  resolve that query.
+
+Download VirtualBox and VM Image:
+
+http://devasenainupakutika.github.io/2014-06-25-Reading/
+
+GitHub repository link where all the workshop material is present:
+
+https://github.com/DevasenaInupakutika/2014-06-25-Reading
+This contains all the useful information and links that we will be using during the sessions.
+
+Downloading above repository to your local virtual machine:
+
+git clone https://github.com/DevasenaInupakutika/2014-06-25-Reading
+ 
+Resources during Shell sessions:
+
+In above downloaded repository go to 'Shell' directory using below command:
+
+cd Shell
+
+   * filesystem: filesystem used in "Files and Directories" and "Creating Things"
+
+   * creatures: DNA data used in "Loops"
+
+   * finding: data using in "Finding Things"
+
+   * molecules: PDB files used in "Pipes and Filters"
+
+   * scripting: files and directories used in "Shell Scripts"
+
+
+To shorten the prompt:
+
+open bash_profile using below command:
+
+nano ~/.bash_profile
+
+Append below command in bash_profile:
+
+export PS1 = "$"
+
+
+June 26:
+
+Please fill in survey at the end of day. Here's the link:
+
+ https://docs.google.com/forms/d/1XEZGUOwlPVwolj6r-ob91cJIZ5EItoEEPr03T-1NvMA/viewform
+ 
+https://github.com/DevasenaInupakutika/2014-06-25-Reading/blob/master/git/git-exercises.md
+https://github.com/DevasenaInupakutika/2014-06-25-Reading/blob/master/git/git-commands.m
+http://pcottle.github.io/learnGitBranching/
+
+Christina
+email: christinakconnect@gmail.com
+github: christinaLK
+
+Devasena
+email: devasena.prasad@gmail.com
+github: DevasenaInupakutika
+
+Guy   :  guy.griffiths@reading.ac.uk
+Jane  :  j.p.lewis@reading.ac.uk
+
